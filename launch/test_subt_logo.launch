@@ -1,0 +1,12 @@
+<launch>
+
+  <!-- Publish the SubT logo as a ROS sensor_msgs/PointCloud2 message -->
+  <!-- depends on the ROS package `pcl_ros` -->
+
+  <node pkg="urban_ground_truth" type="load_pcd" name="subt_pcd" output="screen" args="$(find urban_ground_truth)/data/SubTLogo.pcd 5">
+	<param name="frame_id" value="darpa"/>
+	<remap from="cloud_pcd" to="/cloud"/>
+	<param name="latch" value="true"/>
+  </node>
+
+</launch>

@@ -1,0 +1,43 @@
+frame_id: darpa 
+marker_color: [0.0, 0.7, 0.2]
+artifacts:
+  - type: survivor
+    position: [ 14.296, 43.504, 2.028]
+  - type: vent
+    position: [ -10.437, 52.977, 2.851]
+  - type: backpack
+    position: [ -1.499, 50.578, 4.832]
+  - type: backpack
+    position: [ -13.905, 82.807, 0.356]
+  - type: cell phone
+    position: [ 9.134, 70.894, 1.08]
+  - type: survivor
+    position: [ 39.601, 65.756, 0.617]
+  - type: backpack
+    position: [ 64.483, 53.36, 0.666]
+  - type: vent
+    position: [ 64.223, 26.497, 5.282]
+  - type: cell phone
+    position: [ 55.618, 35.501, 0.051]
+  - type: vent
+    position: [ 62.676, 13.633, 1.412]
+  - type: backpack
+    position: [ 51.497, 11.214, 3.234]
+  - type: gas
+    position: [ 30.7, 9.514, 0.013]
+  - type: backpack
+    position: [ 21.22, 18.659, 0.572]
+  - type: gas
+    position: [ -0.183, 18.305, -0.04]
+  - type: cell phone
+    position: [ -8.611, 31, 2.176]
+  - type: vent
+    position: [ 15.045, 2.048, -6.212]
+  - type: survivor
+    position: [ -14.682, 0.715, -7.829]
+  - type: gas
+    position: [ -10.42, 28.816, -8.325]
+  - type: cell phone
+    position: [ -8.957, 73.914, -6.419]
+  - type: backpack
+    position: [ -0.724, -4.4, -5.507]

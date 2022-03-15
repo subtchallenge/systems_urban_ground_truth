@@ -1,0 +1,33 @@
+<launch>
+
+  <arg name="rviz" default="true"/>
+  <arg name="course" default="alpha" doc="alpha or beta"/>
+  <arg name="config" default="1"     doc="1 or 2"/>
+
+  <!-- Load Lower Floor Scan as Point Cloud -->
+  <node pkg="urban_ground_truth" type="load_pcd" name="scan_lower" args="$(find urban_ground_truth)/data/Urban_Circuit_LowRes_Scan_$(arg course)_LowerFloor.pcd 0">
+    <param name="frame_id" value="darpa"/>
+    <remap from="cloud_pcd" to="/scan/lower"/>
+    <param name="latch" value="true"/>
+  </node>
+
+  <!-- Load Upper Floor Scan as Point Cloud -->
+  <node pkg="urban_ground_truth" type="load_pcd" name="scan_upper" args="$(find urban_ground_truth)/data/Urban_Circuit_LowRes_Scan_$(arg course)_UpperFloor.pcd 0">
+    <param name="frame_id" value="darpa"/>
+    <remap from="cloud_pcd" to="/scan/upper"/>
+    <param name="latch" value="true"/>
+  </node>
+
+  <!-- Load Artifacts as Markers -->
+  <group if="$(eval config != '')">
+
+     <rosparam param="/alpha/artifacts" file="$(find urban_ground_truth)/config/alpha_artifacts_$(arg config).yaml" />
+     <rosparam param="/beta/artifacts" file="$(find urban_ground_truth)/config/beta_artifacts_$(arg config).yaml" />
+     
+     <node ns="$(arg course)" pkg="urban_ground_truth" type="publish_artifacts.py" name="artifact_markers" output="screen"/>
+
+  </group>
+
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz" output="screen" args="-d $(find urban_ground_truth)/launch/view_urban.rviz"/>
+
+</launch>
